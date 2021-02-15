@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>This recipe downloads and imports the full installer pkg for Microsoft Word 365 into Munki
+    
+	This is accomplished via the Office 365 recipes from rtrouton-recipes.
+	
+    These in turn, utilise the fwlink's found on macadmins.software</string>
+    <key>Identifier</key>
+    <string>com.github.dataJAR-recipes.munki.Microsoft Word 365</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>Microsoft Word 365</string>
+        <key>PRODUCTID</key>
+        <string>525134</string>
+        <key>DOWNLOADURL</key>
+        <string>https://go.microsoft.com/fwlink/?linkid=%PRODUCTID%</string>
+        <key>MUNKI_REPO_SUBDIR</key>
+        <string>apps/Microsoft/Office365</string>
+        <key>MINIMUM_OS_VERSION</key>
+        <string>10.12.0</string>
+        <key>pkginfo</key>
+        <dict>
+            <key>blocking_applications</key>
+            <array>
+                <string>Microsoft Auto Update</string>
+                <string>Microsoft Error Reporting</string>
+                <string>Microsoft Word</string>
+            </array>
+            <key>catalogs</key>
+            <array>
+                <string>prod</string>
+            </array>
+            <key>description</key>
+            <string>Mit Outlook auf deinem Mac kannst du folgende Aktionen ausführen: E-Mail so organisieren, dass du dich auf die wichtigsten Nachrichten konzentrieren können. Deinen Kalender verwalten und freigeben, damit du Besprechungen mühelos planen kannst. Dateien aus der Cloud freigeben, damit die Empfänger immer über die neueste Version verfügen. In Verbindung bleiben und produktiv sein – auch unterwegs.</string>
+            <key>display_name</key>
+            <string>Microsoft Word</string>
+            <key>name</key>
+            <string>%NAME%</string>
+                        <key>category</key>
+                        <string>Büro und Verwaltung</string>
+                        <key>developer</key>
+                        <string>Microsoft</string>
+            <key>unattended_install</key>
+            <true/>
+            <key>unattended_uninstall</key>
+            <true/>
+        </dict>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>1.0.0</string>
+    <key>ParentRecipe</key>
+    <string>com.github.rtrouton.pkg.microsoftword365</string>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Processor</key>
+            <string>MunkiPkginfoMerger</string>
+            <key>Arguments</key>
+            <dict>
+                <key>additional_pkginfo</key>
+                <dict>
+                    <key>minimum_os_version</key>
+                    <string>%MINIMUM_OS_VERSION%</string>
+                </dict>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>MunkiImporter</string>
+            <key>Arguments</key>
+            <dict>
+                <key>pkg_path</key>
+                <string>%pkg_path%</string>
+                <key>repo_subdirectory</key>
+                <string>%MUNKI_REPO_SUBDIR%</string>
+            </dict>
+        </dict>
+    </array>
+</dict>
+</plist>
