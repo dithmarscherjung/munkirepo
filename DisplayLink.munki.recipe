@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Identifier</key>
+	<string>local.munki.DisplayLink</string>
+	<key>Input</key>
+	<dict>
+		<key>DOWNLOAD_URL</key>
+		<string>https://www.displaylink.com/downloads</string>
+		<key>MUNKI_REPO_SUBDIR</key>
+		<string>apps/%NAME%</string>
+		<key>NAME</key>
+		<string>displaylink</string>
+		<key>pkginfo</key>
+		<dict>
+			<key>catalogs</key>
+			<array>
+				<string>prod</string>
+			</array>
+			<key>category</key>
+			<string>Hardware und Systemtools</string>
+			<key>description</key>
+			<string>Dieses Paket ermöglicht es dir, zwei Monitore an einer externen Dockingstation zu betreiben.</string>
+			<key>developer</key>
+			<string>DisplayLink</string>
+			<key>display_name</key>
+			<string>DisplayLink Driver Installer</string>
+			<key>minimum_os_version</key>
+			<string>10.10</string>
+			<key>name</key>
+			<string>%NAME%</string>
+			<key>unattended_install</key>
+			<true/>
+		</dict>
+	</dict>
+	<key>ParentRecipe</key>
+	<string>com.github.dataJAR-recipes.munki.DisplayLink</string>
+	<key>ParentRecipeTrustInfo</key>
+	<dict>
+		<key>non_core_processors</key>
+		<dict/>
+		<key>parent_recipes</key>
+		<dict>
+			<key>com.github.dataJAR-recipes.download.DisplayLink</key>
+			<dict>
+				<key>git_hash</key>
+				<string>72781d89158afee895aef42d9140df58029466c9</string>
+				<key>path</key>
+				<string>/Users/Shared/GitRepos/com.github.autopkg.dataJAR-recipes/DisplayLink/DisplayLink.download.recipe</string>
+				<key>sha256_hash</key>
+				<string>7230dcbdb86bf6d9a7ad302b37d98a2be6e93fe9c57ccc64c454c9d2ca13d099</string>
+			</dict>
+			<key>com.github.dataJAR-recipes.munki.DisplayLink</key>
+			<dict>
+				<key>git_hash</key>
+				<string>2f7a136555058a6dc587f00c9aae882b8a3ff5b5</string>
+				<key>path</key>
+				<string>/Users/Shared/GitRepos/com.github.autopkg.dataJAR-recipes/DisplayLink/DisplayLink.munki.recipe</string>
+				<key>sha256_hash</key>
+				<string>98239d7c92c15d73307fe4dc3b7d83471ef35f56ed52e12023dcb7f13ff7167e</string>
+			</dict>
+		</dict>
+	</dict>
+</dict>
+</plist>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Identifier</key>
+	<string>local.munki.AdobeReader</string>
+	<key>Input</key>
+	<dict>
+		<key>LANGUAGE</key>
+		<string>English</string>
+		<key>MAJOR_VERSION</key>
+		<string>11</string>
+		<key>MUNKI_REPO_SUBDIR</key>
+		<string>apps/Adobe</string>
+		<key>NAME</key>
+		<string>AdobeReader</string>
+		<key>OS_VERSION</key>
+		<string>10.8.0</string>
+		<key>pkginfo</key>
+		<dict>
+			<key>blocking_applications</key>
+			<array>
+				<string>Adobe Acrobat Pro.app</string>
+				<string>Adobe Acrobat Reader DC.app</string>
+				<string>Adobe Acrobat.app</string>
+				<string>Adobe Reader.app</string>
+			</array>
+			<key>catalogs</key>
+			<array>
+				<string>prod</string>
+			</array>
+			<key>category</key>
+            <string>B&#252;ro und Verwaltung</string>
+			<key>description</key>
+			<string>Adobe® Reader® is the global standard for reliably viewing, printing, and commenting on PDF documents. It's the only PDF file viewer that can open and interact with all types of PDF content, including forms and multimedia.</string>
+			<key>display_name</key>
+			<string>Adobe Reader</string>
+			<key>minimum_os_version</key>
+			<string>10.6.4</string>
+			<key>name</key>
+			<string>%NAME%</string>
+			<key>preinstall_script</key>
+			<string>#!/bin/sh
+if [ -e "/Applications/Adobe Reader.app" ]; then
+rm -r "/Applications/Adobe Reader.app"
+fi
+exit 0
+                </string>
+			<key>unattended_install</key>
+			<true/>
+		</dict>
+	</dict>
+	<key>ParentRecipe</key>
+	<string>com.github.autopkg.munki.AdobeReader</string>
+	<key>ParentRecipeTrustInfo</key>
+	<dict>
+		<key>non_core_processors</key>
+		<dict>
+			<key>AdobeReaderURLProvider</key>
+			<dict>
+				<key>git_hash</key>
+				<string>437e573e281a4bd4ceb40ee569fc3e3dd441d0ba</string>
+				<key>path</key>
+				<string>/Users/Shared/GitRepos/com.github.autopkg.recipes/AdobeReader/AdobeReaderURLProvider.py</string>
+				<key>sha256_hash</key>
+				<string>c2fa5d078493c52e8fe34e8f899ed0590421fffa2d0bbe91a1b6b4f07bbe4498</string>
+			</dict>
+		</dict>
+		<key>parent_recipes</key>
+		<dict>
+			<key>com.github.autopkg.download.AdobeReader</key>
+			<dict>
+				<key>git_hash</key>
+				<string>55e47128864841e568cf20ccd2b852fea48faa50</string>
+				<key>path</key>
+				<string>/Users/Shared/GitRepos/com.github.autopkg.recipes/AdobeReader/AdobeReader.download.recipe</string>
+				<key>sha256_hash</key>
+				<string>f21db9376d07d23266f63ca3dccd77772d38edcc25b8148679b7c5c54415f301</string>
+			</dict>
+			<key>com.github.autopkg.munki.AdobeReader</key>
+			<dict>
+				<key>git_hash</key>
+				<string>e2d827c24d411c6cc95532e38fd79cac7c6d815a</string>
+				<key>path</key>
+				<string>/Users/Shared/GitRepos/com.github.autopkg.recipes/AdobeReader/AdobeReader.munki.recipe</string>
+				<key>sha256_hash</key>
+				<string>1973b46ab0a8e6610b8a226ef3150019b9707f93d7e0aa6e38de89c76b07b269</string>
+			</dict>
+		</dict>
+	</dict>
+</dict>
+</plist>

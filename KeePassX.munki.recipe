@@ -2,67 +2,59 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>Comment</key>
-	<string>Created with Recipe Robot v0.2.6 (https://github.com/homebysix/recipe-robot)</string>
-	<key>Description</key>
-	<string>Downloads the latest version of KeePassX and imports it into Munki.</string>
 	<key>Identifier</key>
-	<string>de.md.munki.KeePassX</string>
+	<string>local.munki.KeePassX</string>
 	<key>Input</key>
 	<dict>
 		<key>MUNKI_REPO_SUBDIR</key>
-		<string>apps</string>
+		<string>apps/%NAME%</string>
 		<key>NAME</key>
 		<string>KeePassX</string>
-		<key>MUNKI_CATEGORY</key>
-                <string>Büro und Verwaltung</string>
 		<key>pkginfo</key>
 		<dict>
 			<key>catalogs</key>
 			<array>
-                <string>prod</string>
-				<string>test</string>
+				<string>prod</string>
 			</array>
+			<key>category</key>
+            <string>B&#252;ro und Verwaltung</string>
 			<key>description</key>
-			<string>Free, open-source, cross-platform password manager.</string>
+			<string>KeePassX ist ein kostenloser Passwortmanager.</string>
 			<key>display_name</key>
 			<string>KeePassX</string>
 			<key>name</key>
 			<string>%NAME%</string>
-			<key>category</key>
-			<string>%MUNKI_CATEGORY%</string>
-			<key>developer</key>
-			<string>KeePassX</string>
 			<key>unattended_install</key>
 			<true/>
 		</dict>
 	</dict>
-	<key>MinimumVersion</key>
-	<string>0.5.0</string>
 	<key>ParentRecipe</key>
-	<string>com.github.homebysix.download.KeePassX</string>
-	<key>Process</key>
-	<array>
+	<string>com.github.homebysix.munki.KeePassX</string>
+	<key>ParentRecipeTrustInfo</key>
+	<dict>
+		<key>non_core_processors</key>
+		<dict/>
+		<key>parent_recipes</key>
 		<dict>
-			<key>Arguments</key>
+			<key>com.github.homebysix.download.KeePassX</key>
 			<dict>
-				<key>dmg_path</key>
-				<string>%pathname%</string>
+				<key>git_hash</key>
+				<string>3b27e32a0b1c2c026f9129cfae05d84175b77dfd</string>
+				<key>path</key>
+				<string>/Users/Shared/GitRepos/com.github.autopkg.homebysix-recipes/KeePassX/KeePassX.download.recipe</string>
+				<key>sha256_hash</key>
+				<string>13cc5d30acd3843c54020d2ebe520e3077e81b9d636951deff086d9cd976bdeb</string>
 			</dict>
-			<key>Processor</key>
-			<string>AppDmgVersioner</string>
-		</dict>
-		<dict>
-			<key>Arguments</key>
+			<key>com.github.homebysix.munki.KeePassX</key>
 			<dict>
-				<key>pkg_path</key>
-				<string>%pathname%</string>
-				<key>repo_subdirectory</key>
-				<string>%MUNKI_REPO_SUBDIR%</string>
+				<key>git_hash</key>
+				<string>328b43d447b4e6c0f2f0f562dabd506757620052</string>
+				<key>path</key>
+				<string>/Users/Shared/GitRepos/com.github.autopkg.homebysix-recipes/KeePassX/KeePassX.munki.recipe</string>
+				<key>sha256_hash</key>
+				<string>0c4a798e5454b2177ff37045275bf22cc883ce4b5bfaf99e382467b43a443ea6</string>
 			</dict>
-			<key>Processor</key>
-			<string>MunkiImporter</string>
 		</dict>
-	</array>
+	</dict>
 </dict>
 </plist>

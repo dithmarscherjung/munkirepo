@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Identifier</key>
+	<string>local.munki.CitrixWorkspace</string>
+	<key>Input</key>
+	<dict>
+		<key>MUNKI_CATEGORY</key>
+		<string>B&#252;ro und Verwaltung</string>
+		<key>MUNKI_REPO_SUBDIR</key>
+		<string>apps/Citrix</string>
+		<key>NAME</key>
+		<string>CitrixWorkspace</string>
+		<key>pkginfo</key>
+		<dict>
+			<key>blocking_applications</key>
+			<array>
+				<string>Citrix Workspace</string>
+			</array>
+			<key>catalogs</key>
+			<array>
+				<string>prod</string>
+			</array>
+			<key>category</key>
+			<string>%MUNKI_CATEGORY%</string>
+			<key>description</key>
+			<string>The new Citrix Workspace app gives users a great experience—a secure, contextual, unified workspace—on any device. Give teams instant access to all their SaaS and web apps, files, mobile apps, Citrix Virtual Apps and Desktops from an easy-to-use, all-in-one interface powered by Citrix Workspace services.</string>
+			<key>developer</key>
+			<string>Citrix Systems, Inc.</string>
+			<key>display_name</key>
+			<string>Citrix Workspace</string>
+			<key>minimum_os_version</key>
+			<string>10.15</string>
+			<key>name</key>
+			<string>%NAME%</string>
+			<key>unattended_install</key>
+			<true/>
+			<key>unattended_uninstall</key>
+			<true/>
+		</dict>
+	</dict>
+	<key>ParentRecipe</key>
+	<string>io.github.hjuutilainen.munki.CitrixWorkspace</string>
+	<key>ParentRecipeTrustInfo</key>
+	<dict>
+		<key>non_core_processors</key>
+		<dict/>
+		<key>parent_recipes</key>
+		<dict>
+			<key>io.github.hjuutilainen.download.CitrixWorkspace</key>
+			<dict>
+				<key>git_hash</key>
+				<string>2690773e8944f270ae51eb8b1dba927cfbcfec8b</string>
+				<key>path</key>
+				<string>/Users/Shared/GitRepos/com.github.autopkg.hjuutilainen-recipes/CitrixReceiver/CitrixWorkspace.download.recipe</string>
+				<key>sha256_hash</key>
+				<string>ecaafaaf1baf16389a4ef6eb7a3e9f4f694c8848c0eb3208b8d26009e720a3be</string>
+			</dict>
+			<key>io.github.hjuutilainen.munki.CitrixWorkspace</key>
+			<dict>
+				<key>git_hash</key>
+				<string>1a1587ca57b73e2bcf04574c0fe418bdfe4dff2d</string>
+				<key>path</key>
+				<string>/Users/Shared/GitRepos/com.github.autopkg.hjuutilainen-recipes/CitrixReceiver/CitrixWorkspace.munki.recipe</string>
+				<key>sha256_hash</key>
+				<string>a968f165e848eeb04750725bf92dcb8a60d2439b2f09b3e03e361d20319ce993</string>
+			</dict>
+		</dict>
+	</dict>
+</dict>
+</plist>

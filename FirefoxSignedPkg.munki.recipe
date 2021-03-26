@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Identifier</key>
+	<string>local.munki.FirefoxSignedPkg</string>
+	<key>Input</key>
+	<dict>
+		<key>LATEST_RELEASE</key>
+		<string>LATEST_FIREFOX_VERSION</string>
+		<key>LOCALE</key>
+		<string>de</string>
+		<key>MUNKI_REPO_SUBDIR</key>
+		<string>apps/firefox</string>
+		<key>NAME</key>
+		<string>Firefox</string>
+		<key>pkginfo</key>
+		<dict>
+			<key>blocking_applications</key>
+			<array>
+				<string>Firefox.app</string>
+			</array>
+			<key>catalogs</key>
+			<array>
+				<string>prod</string>
+			</array>
+			<key>category</key>
+			<string>Internettools</string>
+			<key>description</key>
+			<string>Mozilla Firefox ist ein kostenloser Webbrowser</string>
+			<key>display_name</key>
+			<string>Mozilla Firefox</string>
+			<key>minimum_os_version</key>
+			<string>10.9</string>
+			<key>name</key>
+			<string>%NAME%</string>
+			<key>unattended_install</key>
+			<true/>
+		</dict>
+	</dict>
+	<key>ParentRecipe</key>
+	<string>com.github.autopkg.munki.FirefoxSignedPkg</string>
+	<key>ParentRecipeTrustInfo</key>
+	<dict>
+		<key>non_core_processors</key>
+		<dict/>
+		<key>parent_recipes</key>
+		<dict>
+			<key>com.github.autopkg.download.FirefoxSignedPkg</key>
+			<dict>
+				<key>git_hash</key>
+				<string>b8ebd97b7fc92cc4a9dc382ccc2ff8090c1b8f21</string>
+				<key>path</key>
+				<string>/Users/Shared/GitRepos/com.github.autopkg.recipes/Mozilla/FirefoxSignedPkg.download.recipe</string>
+				<key>sha256_hash</key>
+				<string>63a854b014f941e7c6a24714eab91310ca0d40b91ab33e609724f24e918be53f</string>
+			</dict>
+			<key>com.github.autopkg.munki.FirefoxSignedPkg</key>
+			<dict>
+				<key>git_hash</key>
+				<string>b8ebd97b7fc92cc4a9dc382ccc2ff8090c1b8f21</string>
+				<key>path</key>
+				<string>/Users/Shared/GitRepos/com.github.autopkg.recipes/Mozilla/FirefoxSignedPkg.munki.recipe</string>
+				<key>sha256_hash</key>
+				<string>3bd2182198bf27c35b13ba84e4bf2dd551045e1eeee682270a5b28d976669985</string>
+			</dict>
+		</dict>
+	</dict>
+</dict>
+</plist>

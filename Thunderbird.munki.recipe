@@ -2,55 +2,75 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-    <key>Description</key>
-    <string>Downloads Thunderbird disk image and imports into Munki.
-Some useful values for RELEASE are: 'latest', 'beta-latest'.
-LOCALE controls the language localization to be downloded.
-Examples include 'en-US', 'de', 'sv-SE', and 'zh-TW'
-See the following URLs for more info:
-    http://ftp.mozilla.org/pub/thunderbird/releases/latest/README.txt
-    http://ftp.mozilla.org/pub/thunderbird/releases/latest-beta/README.txt</string>
-    <key>Identifier</key>
-    <string>com.github.autopkg.munki.thunderbird</string><key>Input</key>
-    <dict>
-        <key>MUNKI_REPO_SUBDIR</key>
-        <string>apps/thunderbird</string>
-        <key>NAME</key>
-        <string>Thunderbird</string>
-        <key>pkginfo</key>
-        <dict>
-            <key>catalogs</key>
-            <array>
-                <string>testing</string>
-                <string>prod</string>
-            </array>
-            <key>description</key>
-            <string>Mozilla Thunderbird is a free and open source mail client.</string>
-            <key>display_name</key>
-            <string>Mozilla Thunderbird</string>
-            <key>name</key>
-            <string>%NAME%</string>
-            <key>unattended_install</key>
-            <true/>
-        </dict>
-    </dict>
-    <key>MinimumVersion</key>
-    <string>2.0</string>
-    <key>ParentRecipe</key>
-    <string>com.github.autopkg.download.thunderbird</string>
-    <key>Process</key>
-    <array>
-        <dict>
-            <key>Arguments</key>
-            <dict>
-                <key>pkg_path</key>
-                <string>%pathname%</string>
-                <key>repo_subdirectory</key>
-                <string>%MUNKI_REPO_SUBDIR%</string>
-            </dict>
-            <key>Processor</key>
-            <string>MunkiImporter</string>
-        </dict>
-    </array>
+	<key>Identifier</key>
+	<string>local.munki.Thunderbird</string>
+	<key>Input</key>
+	<dict>
+		<key>DISABLE_CODE_SIGNATURE_VERIFICATION</key>
+		<false/>
+		<key>LOCALE</key>
+		<string>en_US</string>
+		<key>MUNKI_REPO_SUBDIR</key>
+		<string>apps/thunderbird</string>
+		<key>NAME</key>
+		<string>Thunderbird</string>
+		<key>RELEASE</key>
+		<string>latest</string>
+		<key>pkginfo</key>
+		<dict>
+			<key>catalogs</key>
+			<array>
+				<string>prod</string>
+			</array>
+			<key>category</key>
+			<string>Büro und Verwaltung</string>
+			<key>description</key>
+			<string>Mozilla Thunderbird is a free and open source mail client.</string>
+			<key>display_name</key>
+			<string>Mozilla Thunderbird</string>
+			<key>name</key>
+			<string>%NAME%</string>
+			<key>unattended_install</key>
+			<true/>
+		</dict>
+	</dict>
+	<key>ParentRecipe</key>
+	<string>com.github.autopkg.munki.thunderbird</string>
+	<key>ParentRecipeTrustInfo</key>
+	<dict>
+		<key>non_core_processors</key>
+		<dict>
+			<key>MozillaURLProvider</key>
+			<dict>
+				<key>git_hash</key>
+				<string>92758e3756ac9f090e69531b0821ebf1842c899c</string>
+				<key>path</key>
+				<string>/Users/Shared/GitRepos/com.github.autopkg.recipes/Mozilla/MozillaURLProvider.py</string>
+				<key>sha256_hash</key>
+				<string>9f9ae9a7416e59067ba92dde475b925595daa9ac436e82467e1b97bacbb6856b</string>
+			</dict>
+		</dict>
+		<key>parent_recipes</key>
+		<dict>
+			<key>com.github.autopkg.download.thunderbird</key>
+			<dict>
+				<key>git_hash</key>
+				<string>00f9b0ea8aa77716c0875f9aff6f1281cbf8d84d</string>
+				<key>path</key>
+				<string>/Users/Shared/GitRepos/com.github.autopkg.recipes/Mozilla/Thunderbird.download.recipe</string>
+				<key>sha256_hash</key>
+				<string>24688c463239feeea2477152f722b4f1e5ef0c0c5c65bed4e98ac54492ea29e2</string>
+			</dict>
+			<key>com.github.autopkg.munki.thunderbird</key>
+			<dict>
+				<key>git_hash</key>
+				<string>b8ebd97b7fc92cc4a9dc382ccc2ff8090c1b8f21</string>
+				<key>path</key>
+				<string>/Users/Shared/GitRepos/com.github.autopkg.recipes/Mozilla/Thunderbird.munki.recipe</string>
+				<key>sha256_hash</key>
+				<string>33d0936a9006eb59d9896090397c7a0cc222eca276d0f6cb8984a1f2af922792</string>
+			</dict>
+		</dict>
+	</dict>
 </dict>
 </plist>

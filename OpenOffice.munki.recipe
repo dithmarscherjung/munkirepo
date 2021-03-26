@@ -2,24 +2,23 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>Description</key>
-	<string>Downloads the current release version of Apache OpenOffice and imports into Munki.</string>
 	<key>Identifier</key>
-	<string>de.md.munki.OpenOffice</string>
+	<string>local.munki.OpenOffice</string>
 	<key>Input</key>
 	<dict>
+		<key>LANGUAGE</key>
+		<string>en-US</string>
+		<key>MUNKI_CATEGORY</key>
+		<string>Büro und Verwaltung</string>
+		<key>MUNKI_REPO_SUBDIR</key>
+		<string>apps/OpenOffice</string>
 		<key>NAME</key>
 		<string>OpenOffice</string>
-		<key>MUNKI_REPO_SUBDIR</key>
-		<string>apps</string>
-		<key>MUNKI_CATEGORY</key>
-                <string>Büro und Verwaltung</string>
 		<key>pkginfo</key>
 		<dict>
 			<key>catalogs</key>
 			<array>
-                <string>prod</string>
-				<string>test</string>
+				<string>prod</string>
 			</array>
 			<key>category</key>
 			<string>%MUNKI_CATEGORY%</string>
@@ -37,23 +36,33 @@
 			<true/>
 		</dict>
 	</dict>
-	<key>MinimumVersion</key>
-	<string>0.2.0</string>
 	<key>ParentRecipe</key>
-	<string>io.github.hjuutilainen.download.OpenOffice</string>
-	<key>Process</key>
-	<array>
+	<string>io.github.hjuutilainen.munki.OpenOffice</string>
+	<key>ParentRecipeTrustInfo</key>
+	<dict>
+		<key>non_core_processors</key>
+		<dict/>
+		<key>parent_recipes</key>
 		<dict>
-			<key>Arguments</key>
+			<key>io.github.hjuutilainen.download.OpenOffice</key>
 			<dict>
-				<key>pkg_path</key>
-				<string>%pathname%</string>
-				<key>repo_subdirectory</key>
-				<string>%MUNKI_REPO_SUBDIR%</string>
+				<key>git_hash</key>
+				<string>2d2125706bab698b00d1e52c27ca4a905398de94</string>
+				<key>path</key>
+				<string>/Users/Shared/GitRepos/com.github.autopkg.hjuutilainen-recipes/OpenOffice/OpenOffice.download.recipe</string>
+				<key>sha256_hash</key>
+				<string>3e16ee1d40d86eb6a8acbe65a231b95122ccad8f34019be38a318418d1946f07</string>
 			</dict>
-			<key>Processor</key>
-			<string>MunkiImporter</string>
+			<key>io.github.hjuutilainen.munki.OpenOffice</key>
+			<dict>
+				<key>git_hash</key>
+				<string>87af24607c06ba1a3e9ec6ba1765f52154e662d4</string>
+				<key>path</key>
+				<string>/Users/Shared/GitRepos/com.github.autopkg.hjuutilainen-recipes/OpenOffice/OpenOffice.munki.recipe</string>
+				<key>sha256_hash</key>
+				<string>c90ae19c6f7b65bd467fd5921065abc917cbb86cf4e36c92b4afe1f1262a60ae</string>
+			</dict>
 		</dict>
-	</array>
+	</dict>
 </dict>
 </plist>

@@ -2,14 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>Comment</key>
-	<string>Created with Recipe Robot v1.0.5 (https://github.com/homebysix/recipe-robot)</string>
-	<key>Description</key>
-	<string>Downloads the latest version of draw.io and imports it into Munki.</string>
 	<key>Identifier</key>
-	<string>com.github.jelockwood.recipes.munki.draw.io</string>
+	<string>local.munki.io.draw</string>
 	<key>Input</key>
 	<dict>
+		<key>GITHUB_REPO</key>
+		<string>jgraph/drawio-desktop</string>
 		<key>MUNKI_REPO_SUBDIR</key>
 		<string>apps/%NAME%</string>
 		<key>NAME</key>
@@ -18,13 +16,12 @@
 		<dict>
 			<key>catalogs</key>
 			<array>
-				<string>testing</string>
 				<string>prod</string>
 			</array>
 			<key>category</key>
-                        <string>Grafik, Foto und Design</string>
+			<string>Grafik, Foto und Design</string>
 			<key>description</key>
-			<string>Official electron build of draw.io</string>
+			<string>Mit Draw.io kannst du Flowcharts, UML and Prozessdiagramme, ERDs, Org-Charts, Mindmaps und vieles mehr erstellen.</string>
 			<key>developer</key>
 			<string>JGraph Ltd</string>
 			<key>display_name</key>
@@ -35,23 +32,33 @@
 			<true/>
 		</dict>
 	</dict>
-	<key>MinimumVersion</key>
-	<string>1.0.0</string>
 	<key>ParentRecipe</key>
-	<string>com.github.jelockwood.recipes.download.draw.io</string>
-	<key>Process</key>
-	<array>
+	<string>com.github.jelockwood.recipes.munki.draw.io</string>
+	<key>ParentRecipeTrustInfo</key>
+	<dict>
+		<key>non_core_processors</key>
+		<dict/>
+		<key>parent_recipes</key>
 		<dict>
-			<key>Arguments</key>
+			<key>com.github.jelockwood.recipes.download.draw.io</key>
 			<dict>
-				<key>pkg_path</key>
-				<string>%pathname%</string>
-				<key>repo_subdirectory</key>
-				<string>%MUNKI_REPO_SUBDIR%</string>
+				<key>git_hash</key>
+				<string>9f5c6a0e18502242eb162f1f763452c69b3fc8c7</string>
+				<key>path</key>
+				<string>/Users/Shared/GitRepos/com.github.jelockwood.recipes/draw.io.download.recipe</string>
+				<key>sha256_hash</key>
+				<string>ec00ec6938c748a068554f1fcc73dbdfa6f44dd295f06d183266cdd3bdc497ef</string>
 			</dict>
-			<key>Processor</key>
-			<string>MunkiImporter</string>
+			<key>com.github.jelockwood.recipes.munki.draw.io</key>
+			<dict>
+				<key>git_hash</key>
+				<string>9f5c6a0e18502242eb162f1f763452c69b3fc8c7</string>
+				<key>path</key>
+				<string>/Users/Shared/GitRepos/com.github.jelockwood.recipes/draw.io.munki.recipe</string>
+				<key>sha256_hash</key>
+				<string>fc8215dc601d96fd8705f95bdbcba4bf074459d7d498c07e5cf5054c07fc3f9a</string>
+			</dict>
 		</dict>
-	</array>
+	</dict>
 </dict>
 </plist>

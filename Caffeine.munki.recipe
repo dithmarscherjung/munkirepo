@@ -2,36 +2,32 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>Comment</key>
-	<string>Created with Recipe Robot v1.1.2 (https://github.com/homebysix/recipe-robot)</string>
-	<key>Description</key>
-	<string>Downloads the latest version of Caffeine and imports it into Munki.</string>
 	<key>Identifier</key>
-	<string>com.github.peetinc.munki.Caffeine</string>
+	<string>local.munki.Caffeine</string>
 	<key>Input</key>
 	<dict>
+		<key>CATEGORY</key>
+		<string>Hardware und Systemtools</string>
+		<key>DEVELOPER</key>
+		<string>Intelliscape Computer Solutions</string>
+		<key>DISPLAY_NAME</key>
+		<string>Caffeine</string>
 		<key>MUNKI_REPO_SUBDIR</key>
 		<string>apps/Intelliscape</string>
 		<key>NAME</key>
 		<string>Caffeine</string>
-		<key>DISPLAY_NAME</key>
-		<string>Caffeine</string>
-		<key>CATEGORY</key>
-                <string>Hardware und Systemtools</string>
-		<key>DEVELOPER</key>
-		<string>Intelliscape Computer Solutions</string>
 		<key>pkginfo</key>
 		<dict>
 			<key>catalogs</key>
 			<array>
 				<string>prod</string>
 			</array>
-			<key>description</key>
-			<string>Caffeine is a tiny program that puts an icon in the right side of your menu bar. Click it to prevent your Mac from automatically going to sleep, dimming the screen or starting screen savers. Click it again to go back.</string>
-			<key>developer</key>
-			<string>%DEVELOPER%</string>
 			<key>category</key>
 			<string>%CATEGORY%</string>
+			<key>description</key>
+			<string>Caffeine (nicht: Kaffeine) ist ein freies Programm zum Manipulieren systemweiter Energiespar-Einstellungen.</string>
+			<key>developer</key>
+			<string>%DEVELOPER%</string>
 			<key>display_name</key>
 			<string>%DISPLAY_NAME%</string>
 			<key>name</key>
@@ -40,23 +36,33 @@
 			<true/>
 		</dict>
 	</dict>
-	<key>MinimumVersion</key>
-	<string>1.0.0</string>
 	<key>ParentRecipe</key>
-	<string>com.github.peetinc.download.Caffeine</string>
-	<key>Process</key>
-	<array>
+	<string>com.github.peetinc.munki.Caffeine</string>
+	<key>ParentRecipeTrustInfo</key>
+	<dict>
+		<key>non_core_processors</key>
+		<dict/>
+		<key>parent_recipes</key>
 		<dict>
-			<key>Arguments</key>
+			<key>com.github.peetinc.download.Caffeine</key>
 			<dict>
-				<key>pkg_path</key>
-				<string>%pathname%</string>
-				<key>repo_subdirectory</key>
-				<string>%MUNKI_REPO_SUBDIR%</string>
+				<key>git_hash</key>
+				<string>99b264e22cf2422f74c34b54ea642bd314a8b790</string>
+				<key>path</key>
+				<string>/Users/Shared/GitRepos/com.github.autopkg.peetinc-recipes/Caffeine/Caffeine.download.recipe</string>
+				<key>sha256_hash</key>
+				<string>a42839afa09d28442bec0da0a71237abf67e27ad6e625f58ac7a021a60e56cbc</string>
 			</dict>
-			<key>Processor</key>
-			<string>MunkiImporter</string>
+			<key>com.github.peetinc.munki.Caffeine</key>
+			<dict>
+				<key>git_hash</key>
+				<string>99b264e22cf2422f74c34b54ea642bd314a8b790</string>
+				<key>path</key>
+				<string>/Users/Shared/GitRepos/com.github.autopkg.peetinc-recipes/Caffeine/Caffeine.munki.recipe</string>
+				<key>sha256_hash</key>
+				<string>6598a7e0ff8d59330319e8461cf5a45a41e8c6984c751314c34326995d947a90</string>
+			</dict>
 		</dict>
-	</array>
+	</dict>
 </dict>
 </plist>

@@ -3,17 +3,17 @@
 <plist version="1.0">
 <dict>
 	<key>Identifier</key>
-	<string>local.munki.Keka</string>
+	<string>local.munki.IINA</string>
 	<key>Input</key>
 	<dict>
-		<key>DOWNLOAD_URL</key>
-		<string>https://d.keka.io/</string>
 		<key>MUNKI_CATEGORY</key>
-		<string>Hardware und Systemtools</string>
+		<string>B&#252;ro und Verwaltung</string>
+		<key>MUNKI_DEVELOPER</key>
+		<string>Collider LI</string>
 		<key>MUNKI_REPO_SUBDIR</key>
-		<string>apps/Keka</string>
+		<string>apps/IIna</string>
 		<key>NAME</key>
-		<string>Keka</string>
+		<string>IINA</string>
 		<key>pkginfo</key>
 		<dict>
 			<key>catalogs</key>
@@ -23,11 +23,11 @@
 			<key>category</key>
 			<string>%MUNKI_CATEGORY%</string>
 			<key>description</key>
-			<string>Keka ist ein Pack-/ Entpackprogramm für nahezu jedes gängige Format.</string>
+			<string>IIna ist ein moderner Mediaplayer, der nahezu jedes Format abspielt</string>
 			<key>developer</key>
-			<string>aOne</string>
+			<string>%MUNKI_DEVELOPER%</string>
 			<key>display_name</key>
-			<string>Keka</string>
+			<string>IINA</string>
 			<key>name</key>
 			<string>%NAME%</string>
 			<key>unattended_install</key>
@@ -35,30 +35,30 @@
 		</dict>
 	</dict>
 	<key>ParentRecipe</key>
-	<string>com.github.gerardkok.munki.Keka</string>
+	<string>io.github.hjuutilainen.munki.IINA</string>
 	<key>ParentRecipeTrustInfo</key>
 	<dict>
 		<key>non_core_processors</key>
 		<dict/>
 		<key>parent_recipes</key>
 		<dict>
-			<key>com.github.gerardkok.download.Keka</key>
+			<key>io.github.hjuutilainen.download.IINA</key>
 			<dict>
 				<key>git_hash</key>
-				<string>e6b8c7214853a0e405d9bc9578a08727831b8a39</string>
+				<string>eb41321510def1963f9bc7abe57e5c63af0ff96e</string>
 				<key>path</key>
-				<string>/Users/Shared/GitRepos/com.github.autopkg.gerardkok-recipes/Keka/Keka.download.recipe</string>
+				<string>/Users/Shared/GitRepos/com.github.autopkg.hjuutilainen-recipes/IINA/IINA.download.recipe</string>
 				<key>sha256_hash</key>
-				<string>86949c2d43a0a1f375f817f3782edb2c1f14ad424e12ed96edd26093151ac50f</string>
+				<string>f03abc980bb019f7a53beb9c24c5f3575dddf5ddbb48875868316ab97a4c2688</string>
 			</dict>
-			<key>com.github.gerardkok.munki.Keka</key>
+			<key>io.github.hjuutilainen.munki.IINA</key>
 			<dict>
 				<key>git_hash</key>
-				<string>e6b8c7214853a0e405d9bc9578a08727831b8a39</string>
+				<string>41f3e82230511d7ece5466e1fece8f407f5c1db2</string>
 				<key>path</key>
-				<string>/Users/Shared/GitRepos/com.github.autopkg.gerardkok-recipes/Keka/Keka.munki.recipe</string>
+				<string>/Users/Shared/GitRepos/com.github.autopkg.hjuutilainen-recipes/IINA/IINA.munki.recipe</string>
 				<key>sha256_hash</key>
-				<string>1f3a1e31225adb8381b6e45c88f20c971263a2c1cb101f5e32b1cc7e8d15ee1d</string>
+				<string>fff4e985e7118df5810ceb4fbc94d42d117d682e870be670a77c46da71d853f7</string>
 			</dict>
 		</dict>
 	</dict>

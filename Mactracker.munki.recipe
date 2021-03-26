@@ -2,61 +2,61 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-    <key>Description</key>
-    <string>Downloads the current release version of Mactracker and imports into Munki.</string>
-    <key>ParentRecipe</key>
-    <string>com.github.arubdesu.download.Mactracker</string>
-    <key>Identifier</key>
-    <string>com.github.arubdesu.munki.Mactracker</string>
-    <key>Input</key>
-    <dict>
-        <key>NAME</key>
-        <string>Mactracker</string>
-        <key>MUNKI_REPO_SUBDIR</key>
-        <string>apps</string>
-		<key>MUNKI_CATEGORY</key>
-                <string>Hardware und Systemtools</string>
-        <key>pkginfo</key>
-        <dict>
-            <key>catalogs</key>
-            <array>
-                <string>test</string>
-                <string>prod</string>
-            </array>
-            <key>description</key>
-            <string>Mactracker provides detailed information on every Apple Macintosh computer ever made, including items such as processor speed, memory, optical drives, graphic cards, supported OS versions, and expansion options. Also included is information on Apple mice, keyboards, displays, printers, scanners, speakers, cameras, iPod, Apple TV, iPhone, iPad, Wi-Fi products, Newton, iOS, Mac OS, and OS X versions.</string>
-            <key>display_name</key>
-            <string>Mactracker</string>
-            <key>name</key>
-            <string>%NAME%</string>
-            <key>unattended_install</key>
-            <true/>
-        </dict>
-    </dict>
-    <key>Process</key>
-    <array>
-       <dict>
-           <key>Processor</key>
-           <string>DmgCreator</string>
-           <key>Arguments</key>
-           <dict>
-               <key>dmg_root</key>
-               <string>%RECIPE_CACHE_DIR%/%NAME%</string>
-               <key>dmg_path</key>
-               <string>%RECIPE_CACHE_DIR%/%NAME%.dmg</string>
-           </dict>
-       </dict>
-        <dict>
-            <key>Arguments</key>
-            <dict>
-                <key>pkg_path</key>
-                <string>%dmg_path%</string>
-                <key>repo_subdirectory</key>
-                <string>%MUNKI_REPO_SUBDIR%</string>
-            </dict>
-            <key>Processor</key>
-            <string>MunkiImporter</string>
-        </dict>
-    </array>
+	<key>Identifier</key>
+	<string>local.munki.Mactracker</string>
+	<key>Input</key>
+	<dict>
+		<key>MUNKI_REPO_SUBDIR</key>
+		<string>apps/Mactracker</string>
+		<key>NAME</key>
+		<string>Mactracker</string>
+		<key>pkginfo</key>
+		<dict>
+			<key>catalogs</key>
+			<array>
+				<string>prod</string>
+			</array>
+			<key>category</key>
+			<string>Hardware und Systemtools</string>
+			<key>description</key>
+			<string>Mactracker provides detailed information on every Apple Macintosh, iPod, iPhone, and iPad ever made, including items such as processor speed, memory, graphic cards, supported OS versions, price, storage, and expansion options. Also included is information on early Apple systems, Newton, Apple TV, Apple Watch, Apple accessories, displays, printers, scanners, Wi-Fi products, and operating systems.</string>
+			<key>display_name</key>
+			<string>MacTracker</string>
+			<key>developer</key>
+			<string>Ian Page</string>
+			<key>name</key>
+			<string>%NAME%</string>
+			<key>unattended_install</key>
+			<true/>
+		</dict>
+	</dict>
+	<key>ParentRecipe</key>
+	<string>com.github.valdore86.munki.mactracker</string>
+	<key>ParentRecipeTrustInfo</key>
+	<dict>
+		<key>non_core_processors</key>
+		<dict/>
+		<key>parent_recipes</key>
+		<dict>
+			<key>com.github.valdore86.download.mactracker</key>
+			<dict>
+				<key>git_hash</key>
+				<string>39ae8b698d75b4319780c360655f2860f15cfb6e</string>
+				<key>path</key>
+				<string>/Users/Shared/GitRepos/com.github.autopkg.valdore86-recipes/Mactracker/Mactracker.download.recipe</string>
+				<key>sha256_hash</key>
+				<string>60e2f94c853b9010518b2e5f34c6e2d72ac5bb3557a752a56560667bcc3fd019</string>
+			</dict>
+			<key>com.github.valdore86.munki.mactracker</key>
+			<dict>
+				<key>git_hash</key>
+				<string>d84ab93d57f19658275eb0748c8d12219fac1d88</string>
+				<key>path</key>
+				<string>/Users/Shared/GitRepos/com.github.autopkg.valdore86-recipes/Mactracker/Mactracker.munki.recipe</string>
+				<key>sha256_hash</key>
+				<string>af187010086fee3086255db40c173fb25759afddacf25b4e5cf944a9a246d933</string>
+			</dict>
+		</dict>
+	</dict>
 </dict>
 </plist>

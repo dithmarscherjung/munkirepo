@@ -2,18 +2,18 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>Description</key>
-	<string>Download the latest release of PhpStorm and imports into Munki.</string>
 	<key>Identifier</key>
-	<string>de.md.munki.PhpStorm</string>
+	<string>local.munki.PhpStorm</string>
 	<key>Input</key>
 	<dict>
+		<key>MUNKI_CATEGORY</key>
+		<string>Entwicklertools</string>
+		<key>MUNKI_REPO_SUBDIR</key>
+		<string>apps/JetBrains/PhpStorm</string>
 		<key>NAME</key>
 		<string>PhpStorm</string>
-		<key>MUNKI_REPO_SUBDIR</key>
-		<string>apps</string>
-		<key>MUNKI_CATEGORY</key>
-                <string>Entwicklertools</string>
+		<key>PLATFORM</key>
+		<string>mac</string>
 		<key>pkginfo</key>
 		<dict>
 			<key>blocking_applications</key>
@@ -22,8 +22,7 @@
 			</array>
 			<key>catalogs</key>
 			<array>
-                <string>prod</string>
-				<string>test</string>
+				<string>prod</string>
 			</array>
 			<key>category</key>
 			<string>%MUNKI_CATEGORY%</string>
@@ -41,23 +40,43 @@
 			<true/>
 		</dict>
 	</dict>
-	<key>MinimumVersion</key>
-	<string>0.2.0</string>
 	<key>ParentRecipe</key>
-	<string>com.github.mosen.download.PhpStorm</string>
-	<key>Process</key>
-	<array>
+	<string>com.github.mosen.munki.PhpStorm</string>
+	<key>ParentRecipeTrustInfo</key>
+	<dict>
+		<key>non_core_processors</key>
 		<dict>
-			<key>Arguments</key>
+			<key>JetbrainsURLProvider</key>
 			<dict>
-				<key>pkg_path</key>
-				<string>%pathname%</string>
-				<key>repo_subdirectory</key>
-				<string>%MUNKI_REPO_SUBDIR%</string>
+				<key>git_hash</key>
+				<string>0237028c9fd5c1162d6c0748c5f9a933dc5d40f7</string>
+				<key>path</key>
+				<string>/Users/Shared/GitRepos/com.github.autopkg.mosen-recipes/JetBrains/JetbrainsURLProvider.py</string>
+				<key>sha256_hash</key>
+				<string>b4ffddc469ef35a478be4b8065764f982910f3cb67bdf8a6bee3ec7a0ec7362f</string>
 			</dict>
-			<key>Processor</key>
-			<string>MunkiImporter</string>
 		</dict>
-	</array>
+		<key>parent_recipes</key>
+		<dict>
+			<key>com.github.mosen.download.PhpStorm</key>
+			<dict>
+				<key>git_hash</key>
+				<string>a50ecbbf8b9d10f8c228f1d5b9c75ebc4b207c6b</string>
+				<key>path</key>
+				<string>/Users/Shared/GitRepos/com.github.autopkg.mosen-recipes/JetBrains/PhpStorm.download.recipe</string>
+				<key>sha256_hash</key>
+				<string>ae15a7ef65f4cc9ce61fc06895da22b40fd7786c203dd1d55bd74d8ee30b02a2</string>
+			</dict>
+			<key>com.github.mosen.munki.PhpStorm</key>
+			<dict>
+				<key>git_hash</key>
+				<string>9a5f42a658d54a242ec9e5dbf50016586b4fc67c</string>
+				<key>path</key>
+				<string>/Users/Shared/GitRepos/com.github.autopkg.mosen-recipes/JetBrains/PhpStorm.munki.recipe</string>
+				<key>sha256_hash</key>
+				<string>5a408f5fdc36f8cd3847042cd4e62df317c115cedd498a9a9c66e6a50be502fe</string>
+			</dict>
+		</dict>
+	</dict>
 </dict>
 </plist>

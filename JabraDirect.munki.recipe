@@ -2,53 +2,63 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-    <key>Description</key>
-    <string>Download the latest version of Jabra Direct and imports it into Munki.</string>
-    <key>Identifier</key>
-    <string>com.github.joshua-d-miller.autopkg.munki.jabradirect</string>
-    <key>Input</key>
-    <dict>
-        <key>MUNKI_REPO_SUBDIR</key>
-        <string>apps/jabradirect</string>
-        <key>NAME</key>
-        <string>Jabra Direct</string>
-    	<key>pkginfo</key>
-    	<dict>
-    		<key>catalogs</key>
-    		<array>
-    			<string>testing</string>
-    		</array>
-            <key>display_name</key>
-            <string>%NAME%</string>
-            <key>category</key>
-            <string>Hardware und Systemtools</string>
-            <key>developer</key>
-            <string>GN Group</string>
-    		<key>description</key>
-    		<string>Jabra Direct makes sure that your headset always has the latest firmware, guaranteeing you’ll have the most up-to-date features, bug fixes and easy access to compatibility updates. With the user-friendly Direct Dashboard, staying current has never been easier.</string>
-    		<key>name</key>
-    		<string>%NAME%</string>
-    		<key>unattended_install</key>
-    		<true/>
-    	</dict>
-    </dict>
-    <key>MinimumVersion</key>
-    <string>0.3.0</string>
-    <key>ParentRecipe</key>
-    <string>com.github.joshua-d-miller.download.jabradirect</string>
-    <key>Process</key>
-    <array>
-        <dict>
-            <key>Arguments</key>
-            <dict>
-                <key>pkg_path</key>
-                <string>%pathname%</string>
-                <key>repo_subdirectory</key>
-                <string>%MUNKI_REPO_SUBDIR%</string>
-            </dict>
-            <key>Processor</key>
-            <string>MunkiImporter</string>
-        </dict>
-    </array>
+	<key>Identifier</key>
+	<string>local.munki.JabraDirect</string>
+	<key>Input</key>
+	<dict>
+		<key>DOWNLOAD_URL</key>
+		<string>https://jabraxpressonlineprdstor.blob.core.windows.net/jdo/JabraDirectSetup.dmg</string>
+		<key>MUNKI_REPO_SUBDIR</key>
+		<string>apps/jabradirect</string>
+		<key>NAME</key>
+		<string>Jabra Direct</string>
+		<key>pkginfo</key>
+		<dict>
+			<key>catalogs</key>
+			<array>
+				<string>prod</string>
+			</array>
+			<key>category</key>
+			<string>Hardware und Systemtools</string>
+			<key>description</key>
+			<string>Jabra Direct makes sure that your headset always has the latest firmware, guaranteeing you’ll have the most up-to-date features, bug fixes and easy access to compatibility updates. With the user-friendly Direct Dashboard, staying current has never been easier.</string>
+			<key>developer</key>
+			<string>GN Group</string>
+			<key>display_name</key>
+			<string>%NAME%</string>
+			<key>name</key>
+			<string>%NAME%</string>
+			<key>unattended_install</key>
+			<true/>
+		</dict>
+	</dict>
+	<key>ParentRecipe</key>
+	<string>com.github.joshua-d-miller.autopkg.munki.jabradirect</string>
+	<key>ParentRecipeTrustInfo</key>
+	<dict>
+		<key>non_core_processors</key>
+		<dict/>
+		<key>parent_recipes</key>
+		<dict>
+			<key>com.github.joshua-d-miller.autopkg.munki.jabradirect</key>
+			<dict>
+				<key>git_hash</key>
+				<string>b332e424ac8b665d3f9fe745a75f2880dc059585</string>
+				<key>path</key>
+				<string>/Users/Shared/GitRepos/com.github.autopkg.joshua-d-miller-recipes/Jabra/JabraDirect.munki.recipe</string>
+				<key>sha256_hash</key>
+				<string>4edcb4965a2679390084656e31f0b818b07a680a235cdc7fc6ce8898fc0edbc7</string>
+			</dict>
+			<key>com.github.joshua-d-miller.download.jabradirect</key>
+			<dict>
+				<key>git_hash</key>
+				<string>8af10d1bd00acaccd4b590fa7baf2714e6fe0045</string>
+				<key>path</key>
+				<string>/Users/Shared/GitRepos/com.github.autopkg.joshua-d-miller-recipes/Jabra/JabraDirect.download.recipe</string>
+				<key>sha256_hash</key>
+				<string>4120bb8ef2990799eb3bc201f0cd79989ab508b41cc62ad74307f7a05cb0b08a</string>
+			</dict>
+		</dict>
+	</dict>
 </dict>
 </plist>

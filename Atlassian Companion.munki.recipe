@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Identifier</key>
+	<string>local.munki.Atlassian Companion</string>
+	<key>Input</key>
+	<dict>
+		<key>DOWNLOAD_URL</key>
+		<string>https://update-nucleus.atlassian.com/Atlassian-Companion/291cb34fe2296e5fb82b83a04704c9b4/latest/darwin/x64/Atlassian%20Companion.dmg</string>
+		<key>MUNKI_REPO_SUBDIR</key>
+		<string>apps/%NAME%</string>
+		<key>NAME</key>
+		<string>Atlassian Companion</string>
+		<key>pkginfo</key>
+		<dict>
+			<key>catalogs</key>
+			<array>
+				<string>prod</string>
+			</array>
+			<key>category</key>
+			<string>Internettools</string>
+			<key>description</key>
+			<string>&lt;html&gt;&lt;p style="font-family:Helvetica;font-size:12px"&gt;The Atlassian Companion app manages the download and re-upload of files you edit in Confluence.&lt;/p&gt;
+
+&lt;p style="font-family:Helvetica;font-size:12px"&gt;The first time you edit a file, you will be prompted to install the Companion app and allow it to connect to your Confluence site.&lt;/p&gt;
+
+&lt;ul style="font-family:Helvetica;font-size:12px"&gt;
+    &lt;li&gt;Click the file to open it in preview.&lt;/li&gt;
+    &lt;li&gt;Click Edit with.&lt;/li&gt;
+    &lt;li&gt;Follow the prompts to download and install the Atlassian Companion app.&lt;/li&gt;
+    &lt;li&gt;Launch the Companion app.&lt;/li&gt;
+    &lt;li&gt;In the Companion app, click Trust to confirm you want to connect to Confluence.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p style="font-family:Helvetica;font-size:12px"&gt;For more information, see the following &lt;a href="https://confluence.atlassian.com/doc/edit-files-170494553.html#EditFiles-AtlassianCompanionapp" target="_blank"&gt;Atlassian support article&lt;/a&gt;.&lt;/p&gt; &lt;/html&gt;</string>
+			<key>developer</key>
+			<string>Atlassian Pty Ltd</string>
+			<key>display_name</key>
+			<string>Atlassian Companion</string>
+			<key>name</key>
+			<string>%NAME%</string>
+			<key>unattended_install</key>
+			<true/>
+		</dict>
+	</dict>
+	<key>ParentRecipe</key>
+	<string>com.github.its-unibas.munki.AtlassianCompanion</string>
+	<key>ParentRecipeTrustInfo</key>
+	<dict>
+		<key>non_core_processors</key>
+		<dict/>
+		<key>parent_recipes</key>
+		<dict>
+			<key>com.github.its-unibas.download.AtlassianCompanion</key>
+			<dict>
+				<key>git_hash</key>
+				<string>b5629cf4fe70bb578e1b06ecd2bce18dae31e172</string>
+				<key>path</key>
+				<string>/Users/Shared/GitRepos/com.github.autopkg.its-unibas-recipes/Atlassian Pty Ltd/Atlassian Companion.download.recipe</string>
+				<key>sha256_hash</key>
+				<string>1de23251787575401171467a7d25e6d8b08d4b93bf7af790546e2e0efe43a33b</string>
+			</dict>
+			<key>com.github.its-unibas.munki.AtlassianCompanion</key>
+			<dict>
+				<key>git_hash</key>
+				<string>cc791d8445d1ae61159808ee529426d8329102e6</string>
+				<key>path</key>
+				<string>/Users/Shared/GitRepos/com.github.autopkg.its-unibas-recipes/Atlassian Pty Ltd/Atlassian Companion.munki.recipe</string>
+				<key>sha256_hash</key>
+				<string>4fdb4b2fe78907c5991e96684bb73547cfc3dfc63012a1c4542ff03ff34850d5</string>
+			</dict>
+		</dict>
+	</dict>
+</dict>
+</plist>

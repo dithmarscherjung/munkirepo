@@ -2,29 +2,26 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>Description</key>
-	<string>Download FreeMind disk image and build a package.</string>
 	<key>Identifier</key>
-	<string>com.github.prochat.munki.freemind</string>
+	<string>local.munki.FreeMind</string>
 	<key>Input</key>
 	<dict>
 		<key>DISPLAY_NAME</key>
 		<string>FreeMind</string>
 		<key>MUNKI_REPO_SUBDIR</key>
-		<string>%NAME%</string>
+		<string>apps/Freemind</string>
 		<key>NAME</key>
 		<string>FreeMind</string>
 		<key>pkginfo</key>
 		<dict>
 			<key>catalogs</key>
 			<array>
-				<string>testing</string>
 				<string>prod</string>
 			</array>
 			<key>category</key>
-                        <string>Grafik, Foto und Design</string>
+			<string>Grafik, Foto und Design</string>
 			<key>description</key>
-			<string>OpenSource MindMapper.</string>
+			<string>Mit Freemind kannst du schnell und einfach Mindmaps erstellen.</string>
 			<key>developer</key>
 			<string>FreeMind.org</string>
 			<key>display_name</key>
@@ -36,20 +33,60 @@
 		</dict>
 	</dict>
 	<key>ParentRecipe</key>
-	<string>com.github.prochat.pkg.freemind</string>
-	<key>Process</key>
-	<array>
+	<string>com.github.dataJAR-recipes.munki.FreeMind</string>
+	<key>ParentRecipeTrustInfo</key>
+	<dict>
+		<key>non_core_processors</key>
 		<dict>
-			<key>Arguments</key>
+			<key>com.github.homebysix.VersionSplitter/VersionSplitter</key>
 			<dict>
-				<key>pkg_path</key>
-				<string>%pkg_path%</string>
-				<key>repo_subdirectory</key>
-				<string>%MUNKI_REPO_SUBDIR%</string>
+				<key>git_hash</key>
+				<string>b9c1484128d1f5308bb66dcc4ca9e1be3536b0fc</string>
+				<key>path</key>
+				<string>/Users/Shared/GitRepos/com.github.autopkg.homebysix-recipes/VersionSplitter/VersionSplitter.py</string>
+				<key>sha256_hash</key>
+				<string>42df3b8906474a22b1621a4fcd9090990f668d68ceb9953bdf2dfc1d88e4fbcd</string>
 			</dict>
-			<key>Processor</key>
-			<string>MunkiImporter</string>
+			<key>com.github.jessepeterson.munki.GrandPerspective/SourceForgeURLProvider</key>
+			<dict>
+				<key>git_hash</key>
+				<string>fe01f703e84197531df684fb42ab7fb608ebae6c</string>
+				<key>path</key>
+				<string>/Users/Shared/GitRepos/com.github.autopkg.jessepeterson-recipes/GrandPerspective/SourceForgeURLProvider.py</string>
+				<key>sha256_hash</key>
+				<string>978acaf1f0654cf99e9272d2649052a37f2e83b0c41d06e5df0ab01d7d97bf6d</string>
+			</dict>
 		</dict>
-	</array>
+		<key>parent_recipes</key>
+		<dict>
+			<key>com.github.dataJAR-recipes.download.FreeMind</key>
+			<dict>
+				<key>git_hash</key>
+				<string>582d15ca09998f3c94ebbf4dfc6e91d095de1341</string>
+				<key>path</key>
+				<string>/Users/Shared/GitRepos/com.github.autopkg.dataJAR-recipes/FreeMind/FreeMind.download.recipe</string>
+				<key>sha256_hash</key>
+				<string>0d522b6ce38755bdd3041782bd5a345da011cb36e303ac9f1d4a0a6c1614fb30</string>
+			</dict>
+			<key>com.github.dataJAR-recipes.munki.FreeMind</key>
+			<dict>
+				<key>git_hash</key>
+				<string>582d15ca09998f3c94ebbf4dfc6e91d095de1341</string>
+				<key>path</key>
+				<string>/Users/Shared/GitRepos/com.github.autopkg.dataJAR-recipes/FreeMind/FreeMind.munki.recipe</string>
+				<key>sha256_hash</key>
+				<string>517036a1f10ad807c05feb0112ce49d676838eee98d77a9b9b997aa1facfcc5c</string>
+			</dict>
+			<key>com.github.dataJAR-recipes.pkg.FreeMind</key>
+			<dict>
+				<key>git_hash</key>
+				<string>582d15ca09998f3c94ebbf4dfc6e91d095de1341</string>
+				<key>path</key>
+				<string>/Users/Shared/GitRepos/com.github.autopkg.dataJAR-recipes/FreeMind/FreeMind.pkg.recipe</string>
+				<key>sha256_hash</key>
+				<string>b2d4fc944003adeeddcef9909d4f21051242fa12461fb5c8f991deab32a06dc7</string>
+			</dict>
+		</dict>
+	</dict>
 </dict>
 </plist>

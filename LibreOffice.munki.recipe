@@ -2,29 +2,23 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>Description</key>
-	<string>Downloads the current release version of LibreOffice and imports into Munki. Set RELEASE to either "fresh" or "still".
-
-LibreOffice Still is the stable version that has undergone more testing (over a longer time). It is usually recommended for more conservative use.
-LibreOffice Fresh is the stable version with the most recent features. Users interested in taking advantage of our most innovative features should download and use our fresh version.</string>
 	<key>Identifier</key>
-	<string>de.md.munki.LibreOffice</string>
+	<string>local.munki.LibreOffice</string>
 	<key>Input</key>
 	<dict>
+		<key>MUNKI_CATEGORY</key>
+		<string>Büro und Verwaltung</string>
+		<key>MUNKI_REPO_SUBDIR</key>
+		<string>apps/LibreOffice</string>
 		<key>NAME</key>
 		<string>LibreOffice</string>
 		<key>RELEASE</key>
 		<string>fresh</string>
-		<key>MUNKI_REPO_SUBDIR</key>
-		<string>apps</string>
-		<key>MUNKI_CATEGORY</key>
-                <string>Büro und Verwaltung</string>
 		<key>pkginfo</key>
 		<dict>
 			<key>catalogs</key>
 			<array>
-                <string>prod</string>
-				<string>test</string>
+				<string>prod</string>
 			</array>
 			<key>category</key>
 			<string>%MUNKI_CATEGORY%</string>
@@ -42,23 +36,33 @@ LibreOffice Fresh is the stable version with the most recent features. Users int
 			<true/>
 		</dict>
 	</dict>
-	<key>MinimumVersion</key>
-	<string>0.2.0</string>
 	<key>ParentRecipe</key>
-	<string>io.github.hjuutilainen.download.LibreOffice</string>
-	<key>Process</key>
-	<array>
+	<string>io.github.hjuutilainen.munki.LibreOffice</string>
+	<key>ParentRecipeTrustInfo</key>
+	<dict>
+		<key>non_core_processors</key>
+		<dict/>
+		<key>parent_recipes</key>
 		<dict>
-			<key>Arguments</key>
+			<key>io.github.hjuutilainen.download.LibreOffice</key>
 			<dict>
-				<key>pkg_path</key>
-				<string>%pathname%</string>
-				<key>repo_subdirectory</key>
-				<string>%MUNKI_REPO_SUBDIR%</string>
+				<key>git_hash</key>
+				<string>83e585bad4496703036b1e85511953d0de58de33</string>
+				<key>path</key>
+				<string>/Users/Shared/GitRepos/com.github.autopkg.hjuutilainen-recipes/LibreOffice/LibreOffice.download.recipe</string>
+				<key>sha256_hash</key>
+				<string>20387d8fe81b5d189db437c7ab255c22f40637953c88337aa19b78313273ef8a</string>
 			</dict>
-			<key>Processor</key>
-			<string>MunkiImporter</string>
+			<key>io.github.hjuutilainen.munki.LibreOffice</key>
+			<dict>
+				<key>git_hash</key>
+				<string>8b6a277dd5915929ac29ae5e76a1de449f7ed10a</string>
+				<key>path</key>
+				<string>/Users/Shared/GitRepos/com.github.autopkg.hjuutilainen-recipes/LibreOffice/LibreOffice.munki.recipe</string>
+				<key>sha256_hash</key>
+				<string>6629394ea06504bd72c3ef9630f041f834b5092481a20d1d9c62aa1515f46241</string>
+			</dict>
 		</dict>
-	</array>
+	</dict>
 </dict>
 </plist>

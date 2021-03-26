@@ -2,25 +2,25 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>Description</key>
-	<string>Downloads the current release version of Packages and imports into Munki.</string>
 	<key>Identifier</key>
-	<string>io.github.hjuutilainen.munki.Packages</string>
+	<string>local.munki.Packages</string>
 	<key>Input</key>
 	<dict>
-		<key>NAME</key>
-		<string>Packages</string>
+		<key>DOWNLOAD_URL</key>
+		<string>http://s.sudre.free.fr/Software/files/Packages.dmg</string>
 		<key>MUNKIIMPORT_PKG_NAME</key>
 		<string>packages/Packages.pkg</string>
+		<key>MUNKI_CATEGORY</key>
+		<string>Entwicklertools</string>
 		<key>MUNKI_REPO_SUBDIR</key>
 		<string>apps/Packages</string>
-		<key>MUNKI_CATEGORY</key>
-                <string>Entwicklertools</string>
+		<key>NAME</key>
+		<string>Packages</string>
 		<key>pkginfo</key>
 		<dict>
 			<key>catalogs</key>
 			<array>
-				<string>testing</string>
+				<string>prod</string>
 			</array>
 			<key>category</key>
 			<string>%MUNKI_CATEGORY%</string>
@@ -74,115 +74,33 @@ exit 0
 </string>
 		</dict>
 	</dict>
-	<key>MinimumVersion</key>
-	<string>0.2.0</string>
 	<key>ParentRecipe</key>
-	<string>io.github.hjuutilainen.download.Packages</string>
-	<key>Process</key>
-	<array>
+	<string>io.github.hjuutilainen.munki.Packages</string>
+	<key>ParentRecipeTrustInfo</key>
+	<dict>
+		<key>non_core_processors</key>
+		<dict/>
+		<key>parent_recipes</key>
 		<dict>
-			<key>Arguments</key>
+			<key>io.github.hjuutilainen.download.Packages</key>
 			<dict>
-				<key>flat_pkg_path</key>
-				<string>%pathname%/packages/*.pkg</string>
-				<key>destination_path</key>
-				<string>%RECIPE_CACHE_DIR%/unpack</string>
+				<key>git_hash</key>
+				<string>ffd69bea62381655dd2ee0d06099160f012dda32</string>
+				<key>path</key>
+				<string>/Users/Shared/GitRepos/com.github.autopkg.hjuutilainen-recipes/Packages/Packages.download.recipe</string>
+				<key>sha256_hash</key>
+				<string>c48fe6dc7639dafe53bd0764791975bc41802e4e69881e69545badcfbebb98eb</string>
 			</dict>
-			<key>Processor</key>
-			<string>FlatPkgUnpacker</string>
-		</dict>
-		<dict>
-			<key>Arguments</key>
+			<key>io.github.hjuutilainen.munki.Packages</key>
 			<dict>
-				<key>pkg_payload_path</key>
-				<string>%RECIPE_CACHE_DIR%/unpack/Packages.pkg/Payload</string>
-				<key>destination_path</key>
-				<string>%RECIPE_CACHE_DIR%/payload</string>
-			</dict>
-			<key>Processor</key>
-			<string>PkgPayloadUnpacker</string>
-		</dict>
-		<dict>
-			<key>Arguments</key>
-			<dict>
-				<key>faux_root</key>
-				<string>%RECIPE_CACHE_DIR%/payload</string>
-				<key>installs_item_paths</key>
-				<array>
-					<string>/Applications/Packages.app</string>
-					<string>/Library/PrivilegedHelperTools/fr.whitebox.packages/packages_builder</string>
-					<string>/Library/PrivilegedHelperTools/fr.whitebox.packages/packages_dispatcher</string>
-					<string>/Library/PrivilegedHelperTools/fr.whitebox.packages/Locators/JavaScript.plugin</string>
-					<string>/Library/PrivilegedHelperTools/fr.whitebox.packages/Locators/Standard.plugin</string>
-					<string>/Library/PrivilegedHelperTools/fr.whitebox.packages/Requirements/CPU.plugin</string>
-					<string>/Library/PrivilegedHelperTools/fr.whitebox.packages/Requirements/Disk Space.plugin</string>
-					<string>/Library/PrivilegedHelperTools/fr.whitebox.packages/Requirements/Files.plugin</string>
-					<string>/Library/PrivilegedHelperTools/fr.whitebox.packages/Requirements/JavaScript.plugin</string>
-					<string>/Library/PrivilegedHelperTools/fr.whitebox.packages/Requirements/OS.plugin</string>
-					<string>/Library/PrivilegedHelperTools/fr.whitebox.packages/Requirements/RAM.plugin</string>
-					<string>/Library/PrivilegedHelperTools/fr.whitebox.packages/Requirements/Scripts.plugin</string>
-					<string>/usr/local/bin/packagesbuild</string>
-					<string>/usr/local/bin/packagesutil</string>
-				</array>
-			</dict>
-			<key>Processor</key>
-			<string>MunkiInstallsItemsCreator</string>
-		</dict>
-		<dict>
-			<key>Processor</key>
-			<string>MunkiPkginfoMerger</string>
-			<key>Arguments</key>
-			<dict>
+				<key>git_hash</key>
+				<string>87af24607c06ba1a3e9ec6ba1765f52154e662d4</string>
+				<key>path</key>
+				<string>/Users/Shared/GitRepos/com.github.autopkg.hjuutilainen-recipes/Packages/Packages.munki.recipe</string>
+				<key>sha256_hash</key>
+				<string>a243a4aa308b33ca9f745aaf695fd9e8faf38b75c19af96111d21b7db7d01ce6</string>
 			</dict>
 		</dict>
-		<dict>
-			<key>Processor</key>
-			<string>Versioner</string>
-			<key>Arguments</key>
-			<dict>
-				<key>input_plist_path</key>
-				<string>%RECIPE_CACHE_DIR%/payload/Applications/Packages.app/Contents/Info.plist</string>
-				<key>plist_version_key</key>
-				<string>CFBundleShortVersionString</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>Processor</key>
-			<string>MunkiPkginfoMerger</string>
-			<key>Arguments</key>
-			<dict>
-				<key>additional_pkginfo</key>
-				<dict>
-					<key>version</key>
-					<string>%version%</string>
-				</dict>
-			</dict>
-		</dict>
-		<dict>
-			<key>Arguments</key>
-			<dict>
-				<key>path_list</key>
-				<array>
-					<string>%RECIPE_CACHE_DIR%/unpack</string>
-					<string>%RECIPE_CACHE_DIR%/payload</string>
-				</array>
-			</dict>
-			<key>Processor</key>
-			<string>PathDeleter</string>
-		</dict>
-		<dict>
-			<key>Arguments</key>
-			<dict>
-				<key>pkg_path</key>
-				<string>%pathname%</string>
-				<key>munkiimport_pkgname</key>
-				<string>%MUNKIIMPORT_PKG_NAME%</string>
-				<key>repo_subdirectory</key>
-				<string>%MUNKI_REPO_SUBDIR%</string>
-			</dict>
-			<key>Processor</key>
-			<string>MunkiImporter</string>
-		</dict>
-	</array>
+	</dict>
 </dict>
 </plist>

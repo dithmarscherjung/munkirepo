@@ -1,97 +1,62 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
+<dict>
+	<key>Identifier</key>
+	<string>local.munki.VisualStudioCode</string>
+	<key>Input</key>
 	<dict>
-		<key>Description</key>
-		<string>Downloads the current release version of Visual Studio Code. and imports into Munki.</string>
-		<key>Identifier</key>
-		<string>de.md.munki.visualstudiocode</string>
-		<key>Input</key>
+		<key>MUNKI_REPO_SUBDIR</key>
+		<string>apps/Visual Studio Code</string>
+		<key>NAME</key>
+		<string>Visual Studio Code</string>
+		<key>pkginfo</key>
 		<dict>
-			<key>NAME</key>
-			<string>VisualStudioCode</string>
-			<key>MUNKI_REPO_SUBDIR</key>
-			<string>apps</string>
-			<key>MUNKI_CATEGORY</key>
-                        <string>Entwicklertools</string>
-			<key>blocking_applications</key>
+			<key>catalogs</key>
 			<array>
-				<string>Visual Studio Code</string>
+				<string>prod</string>
 			</array>
-			<key>pkginfo</key>
+			<key>category</key>
+			<string>Entwicklertools</string>
+			<key>description</key>
+			<string>Code combines the streamlined UI of a modern editor with rich code assistance and navigation, and an integrated debugging experience – without the need for a full IDE.</string>
+			<key>developer</key>
+			<string>Microsoft</string>
+			<key>display_name</key>
+			<string>Visual Studio Code</string>
+			<key>name</key>
+			<string>%NAME%</string>
+			<key>unattended_install</key>
+			<true/>
+		</dict>
+	</dict>
+	<key>ParentRecipe</key>
+	<string>com.github.valdore86.munki.visualstudiocode</string>
+	<key>ParentRecipeTrustInfo</key>
+	<dict>
+		<key>non_core_processors</key>
+		<dict/>
+		<key>parent_recipes</key>
+		<dict>
+			<key>com.github.valdore86.download.visualstudiocode</key>
 			<dict>
-				<key>catalogs</key>
-				<array>
-	                <string>prod</string>
-					<string>test</string>
-				</array>
-				<key>category</key>
-				<string>%MUNKI_CATEGORY%</string>
-				<key>description</key>
-				<string>Code combines the streamlined UI of a modern editor with rich code assistance and navigation, and an integrated debugging experience – without the need for a full IDE.</string>
-				<key>developer</key>
-				<string>Microsoft</string>
-				<key>name</key>
-				<string>%NAME%</string>
-				<key>display_name</key>
-				<string>%NAME%</string>
-				<key>unattended_install</key>
-				<true/>
+				<key>git_hash</key>
+				<string>95653b24d2c8b23d0540cf2dc69616a3596dfba3</string>
+				<key>path</key>
+				<string>/Users/Shared/GitRepos/com.github.autopkg.valdore86-recipes/Visual Studio Code/VisualStudioCode.download.recipe</string>
+				<key>sha256_hash</key>
+				<string>dbcbdeda69f346df5ac49f45a0b029b6a91a76b1cb6785e058293859bb04ae66</string>
+			</dict>
+			<key>com.github.valdore86.munki.visualstudiocode</key>
+			<dict>
+				<key>git_hash</key>
+				<string>5e78a485e908d17b00e4e193927d657b756baae5</string>
+				<key>path</key>
+				<string>/Users/Shared/GitRepos/com.github.autopkg.valdore86-recipes/Visual Studio Code/VisualStudioCode.munki.recipe</string>
+				<key>sha256_hash</key>
+				<string>c9c7915ac755a923bf6b28d83654a0699fe56bd01a4b384b4dda0755f8388f3d</string>
 			</dict>
 		</dict>
-		<key>MinimumVersion</key>
-		<string>0.6.1</string>
-		<key>ParentRecipe</key>
-		<string>com.github.valdore86.download.visualstudiocode</string>
-		<key>Process</key>
-		<array>
-			<dict>
-				<key>Processor</key>
-				<string>Versioner</string>
-				<key>Arguments</key>
-				<dict>
-					<key>input_plist_path</key>
-					<string>%RECIPE_CACHE_DIR%/%NAME%/Visual Studio Code.app/Contents/Info.plist</string>
-					<key>plist_version_key</key>
-					<string>CFBundleShortVersionString</string>
-				</dict>
-			</dict>
-			<dict>
-				<key>Processor</key>
-				<string>DmgCreator</string>
-				<key>Arguments</key>
-				<dict>
-					<key>dmg_root</key>
-					<string>%RECIPE_CACHE_DIR%/%NAME%</string>
-					<key>dmg_path</key>
-					<string>%RECIPE_CACHE_DIR%/%NAME%.dmg</string>
-				</dict>
-			</dict>
-			<dict>
-				<key>Processor</key>
-				<string>MunkiPkginfoMerger</string>
-				<key>Arguments</key>
-				<dict>
-					<key>additional_pkginfo</key>
-					<dict>
-						<key>version</key>
-						<string>%version%</string>
-					</dict>
-				</dict>
-			</dict>
-			<dict>
-				<key>Arguments</key>
-				<dict>
-					<key>pkg_path</key>
-					<string>%dmg_path%</string>
-					<key>repo_subdirectory</key>
-					<string>%MUNKI_REPO_SUBDIR%</string>
-					<key>version_comparison_key</key>
-					<string>CFBundleShortVersionString</string>
-				</dict>
-				<key>Processor</key>
-				<string>MunkiImporter</string>
-			</dict>
-		</array>
 	</dict>
+</dict>
 </plist>

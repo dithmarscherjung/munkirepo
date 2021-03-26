@@ -2,31 +2,28 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>Description</key>
-	<string>Downloads the current release version of iTerm2 and imports into Munki.</string>
 	<key>Identifier</key>
-	<string>io.github.hjuutilainen.munki.iTerm2</string>
+	<string>local.munki.iTerm2</string>
 	<key>Input</key>
 	<dict>
+		<key>MUNKI_CATEGORY</key>
+		<string>Entwicklertools</string>
+		<key>MUNKI_REPO_SUBDIR</key>
+		<string>apps/iTerm</string>
 		<key>NAME</key>
 		<string>iTerm2</string>
-		<key>MUNKI_REPO_SUBDIR</key>
-		<string>apps</string>
-		<key>MUNKI_CATEGORY</key>
-                <string>Entwicklertools</string>
 		<key>RELEASE</key>
 		<string>final</string>
 		<key>pkginfo</key>
 		<dict>
 			<key>catalogs</key>
 			<array>
-				<string>testing</string>
 				<string>prod</string>
 			</array>
 			<key>category</key>
 			<string>%MUNKI_CATEGORY%</string>
 			<key>description</key>
-			<string>iTerm2 is a replacement for Terminal and the successor to iTerm. It works on Macs with OS 10.5 (Leopard) or newer. Its focus is on performance, internationalization, and supporting innovative features that make your life better.</string>
+			<string>iTerm2 ist ein GPL-lizenzierter Terminalemulator für macOS.</string>
 			<key>developer</key>
 			<string>George Nachman</string>
 			<key>display_name</key>
@@ -39,38 +36,33 @@
 			<true/>
 		</dict>
 	</dict>
-	<key>MinimumVersion</key>
-	<string>0.2.0</string>
 	<key>ParentRecipe</key>
-	<string>io.github.hjuutilainen.download.iTerm2</string>
-	<key>Process</key>
-	<array>
+	<string>io.github.hjuutilainen.munki.iTerm2</string>
+	<key>ParentRecipeTrustInfo</key>
+	<dict>
+		<key>non_core_processors</key>
+		<dict/>
+		<key>parent_recipes</key>
 		<dict>
-			<key>Processor</key>
-			<string>DmgCreator</string>
-			<key>Arguments</key>
+			<key>io.github.hjuutilainen.download.iTerm2</key>
 			<dict>
-				<key>dmg_root</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%</string>
-				<key>dmg_path</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%.dmg</string>
+				<key>git_hash</key>
+				<string>2144a7f81149788fa2f26e1460579d44a2f88cc6</string>
+				<key>path</key>
+				<string>/Users/Shared/GitRepos/com.github.autopkg.hjuutilainen-recipes/iTerm2/iTerm2.download.recipe</string>
+				<key>sha256_hash</key>
+				<string>e4b6f5ddfded53426a8866832ce4241543030db66f95aa91ea0419c1aa14820d</string>
+			</dict>
+			<key>io.github.hjuutilainen.munki.iTerm2</key>
+			<dict>
+				<key>git_hash</key>
+				<string>40a3dea1c52e4f8248a3bb278547ad3156cf98a8</string>
+				<key>path</key>
+				<string>/Users/Shared/GitRepos/com.github.autopkg.hjuutilainen-recipes/iTerm2/iTerm2.munki.recipe</string>
+				<key>sha256_hash</key>
+				<string>952aa32d0bda4f211e9dd53cd7494d587e124b9bdfbb84ede17ed8e06f74de06</string>
 			</dict>
 		</dict>
-		<dict>
-			<key>Processor</key>
-			<string>MunkiPkginfoMerger</string>
-		</dict>
-		<dict>
-			<key>Arguments</key>
-			<dict>
-				<key>pkg_path</key>
-				<string>%dmg_path%</string>
-				<key>repo_subdirectory</key>
-				<string>%MUNKI_REPO_SUBDIR%</string>
-			</dict>
-			<key>Processor</key>
-			<string>MunkiImporter</string>
-		</dict>
-	</array>
+	</dict>
 </dict>
 </plist>

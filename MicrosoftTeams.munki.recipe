@@ -3,21 +3,19 @@
 <plist version="1.0">
 <dict>
 	<key>Identifier</key>
-	<string>local.munki.MicrosoftDefenderATP</string>
+	<string>local.munki.MicrosoftTeams</string>
 	<key>Input</key>
 	<dict>
 		<key>DOWNLOADURL</key>
 		<string>https://go.microsoft.com/fwlink/?linkid=%PRODUCTID%</string>
 		<key>MUNKI_REPO_SUBDIR</key>
-		<string>apps/DefenderATP</string>
+		<string>apps/Teams</string>
 		<key>NAME</key>
-		<string>MicrosoftDefender</string>
+		<string>MicrosoftTeams</string>
 		<key>PRODUCTID</key>
-		<string>2097502</string>
+		<string>869428</string>
 		<key>SOFTWARETITLE</key>
-		<string>Defender</string>
-		<key>SOFTWARETYPE</key>
-		<string>ATP</string>
+		<string>Teams</string>
 		<key>VENDOR</key>
 		<string>Microsoft</string>
 		<key>pkginfo</key>
@@ -27,44 +25,44 @@
 				<string>prod</string>
 			</array>
 			<key>category</key>
-			<string>Productivity</string>
+            <string>B&#252;ro und Verwaltung</string>
 			<key>description</key>
-			<string>Microsoft Defender anti-virus software</string>
+			<string>Microsoft Teams ist der zentrale Ort für Teamarbeit in Microsoft 365, der Nutzer, Inhalte und Tools verbindet.</string>
 			<key>developer</key>
 			<string>Microsoft</string>
 			<key>display_name</key>
-			<string>Microsoft Defender Anti-Virus </string>
+			<string>Microsoft Teams</string>
 			<key>minimum_os_version</key>
-			<string>10.12.0</string>
+			<string>10.10.0</string>
 			<key>name</key>
 			<string>%NAME%</string>
 		</dict>
 	</dict>
 	<key>ParentRecipe</key>
-	<string>com.github.rtrouton.munki.microsoftdefenderatp</string>
+	<string>com.github.rtrouton.munki.microsoftteams</string>
 	<key>ParentRecipeTrustInfo</key>
 	<dict>
 		<key>non_core_processors</key>
 		<dict/>
 		<key>parent_recipes</key>
 		<dict>
-			<key>com.github.rtrouton.download.microsoftdefenderatp</key>
+			<key>com.github.rtrouton.download.microsoftteams</key>
 			<dict>
 				<key>git_hash</key>
-				<string>de2ec3eb77045ade6f7dd52cb4a6d11dc7fe5ee7</string>
+				<string>ccb1573111f263e913f8e4b81e1c1b5f2785abb7</string>
 				<key>path</key>
-				<string>/Users/Shared/GitRepos/com.github.autopkg.rtrouton-recipes/MicrosoftDefenderATP/MicrosoftDefenderATP.download.recipe</string>
+				<string>/Users/Shared/GitRepos/com.github.autopkg.rtrouton-recipes/MicrosoftTeams/MicrosoftTeams.download.recipe</string>
 				<key>sha256_hash</key>
-				<string>5ec46190294527902aaf0fc4a6762aa67656bb89334717bb1dff22aeb85fcdea</string>
+				<string>bab53e18aec97d83639884ada7e4cf72dc3f1a67ad75c171d0a658dbe27d9f2b</string>
 			</dict>
-			<key>com.github.rtrouton.munki.microsoftdefenderatp</key>
+			<key>com.github.rtrouton.munki.microsoftteams</key>
 			<dict>
 				<key>git_hash</key>
-				<string>91d3252e263d34800dcc3200e78bfda02b110b0e</string>
+				<string>51fcaa5a39e616cbc238e29ff683e9ecee3cf247</string>
 				<key>path</key>
-				<string>/Users/Shared/GitRepos/com.github.autopkg.rtrouton-recipes/MicrosoftDefenderATP/MicrosoftDefenderATP.munki.recipe</string>
+				<string>/Users/Shared/GitRepos/com.github.autopkg.rtrouton-recipes/MicrosoftTeams/MicrosoftTeams.munki.recipe</string>
 				<key>sha256_hash</key>
-				<string>0d94cb43670f508c38cd5dec448b1388d5ac23da298474c084de6e1e8ccbba70</string>
+				<string>d822fcd4b45322ed0c434adea62621d4b838b518e16972745730cc2fa7b451e2</string>
 			</dict>
 		</dict>
 	</dict>
